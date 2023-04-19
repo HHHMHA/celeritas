@@ -123,6 +123,7 @@ func (c *Celeritas) CheckDotEnv(path string) error {
 			lifetime: os.Getenv("COOKIE_LIFETIME"),
 			persist:  os.Getenv("COOKIE_PERSISTS"),
 			secure:   os.Getenv("COOKIE_SECURE"),
+			domain:   os.Getenv("COOKIE_DOMAIN"),
 		},
 		sessionType: os.Getenv("SESSION_TYPE"),
 	}
@@ -133,6 +134,7 @@ func (c *Celeritas) CheckDotEnv(path string) error {
 		CookiePersist:  c.config.cookie.persist,
 		CookieName:     c.config.cookie.name,
 		SessionType:    c.config.sessionType,
+		CookieDomain:   c.config.cookie.domain,
 	}
 	c.Session = sess.InitSession()
 
